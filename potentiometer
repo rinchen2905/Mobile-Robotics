@@ -1,0 +1,30 @@
+int potenPin = A0;
+int potenValue = 0;
+int potenValue2 = 0;
+int LEDPin = 9;
+int LEDPin2 = 3;
+
+
+void setup() {
+  pinMode(potenPin,INPUT);
+  pinMode(LEDPin,OUTPUT);
+  pinMode(LEDPin2,OUTPUT);
+  Serial.begin(9600);
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  potenValue = analogRead(potenPin);
+  potenValue2 = analogRead(potenPin);
+  potenValue = map(potenValue,0,1023,255,0);
+  potenValue2 = map(potenValue2,0,1023,0,255);
+ Serial.println(potenValue);
+  
+  analogWrite(LEDPin,potenValue);
+ delay(1);
+  analogWrite(LEDPin2,potenValue2);
+ delay(1);
+  // put your main code here, to run repeatedly:
+
+} 
